@@ -1,0 +1,21 @@
+{
+  "name": "food-counter-plus-plus",
+  "version": "1.0.0",
+  "description": "API to register and filter food products, their nutrition facts, price and where it was bought by user",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helena-araujo/food-counter-plus-plus.git"
+  },
+  "author": "Helena de Araújo <helenadearaujo98@gmail.com>",
+  "license": "GNU 3.0",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv-safe": "^8.2.0",
+    "email-validator": "^2.0.4",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
