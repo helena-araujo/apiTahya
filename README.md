@@ -1,14 +1,14 @@
 <img src="./public/images/apitahya.svg"> 
 
-# apiThaya
+# apiTahya
 
-API que facilita a pesquisa e catalogação de alimentos consumidos e calcule suas calorias consumidas de acordo com seus objetivos. Veganos, vegetarianos, pessoas com intolerâncias, alergias e diabetes podem identificar o que vão consumir e o que consumiram.
+API que facilita a pesquisa e catalogação de alimentos consumidos e calcula suas calorias consumidas de acordo com os objetivos da usuária. Veganas, vegetarianas, pessoas com intolerâncias, alergias e diabetes podem identificar o que vão consumir e o que consumiram.
 
 ## Clonando e rodando este projeto
 
 ``` bash
-git clone git@github.com:helena-araujo/apiThaya.git
-cd apiThaya
+git clone git@github.com:helena-araujo/apiTahya.git
+cd apiTahya
 npm install
 npm start
 ```

@@ -90,7 +90,7 @@ module.exports.myAccount_put = async (req, res) => {
     }
 
     const {
-      name, email, birthday, gender, weight, height, allergiesIntolerancesDiseases,
+      name, email, country, birthday, gender, weight, height, allergiesIntolerancesDiseases,
       diet, objective, systemOfMeasurement, objectiveQuantity, exerciseFrequency
     } = req.body;
 
@@ -100,6 +100,10 @@ module.exports.myAccount_put = async (req, res) => {
 
     if (email) {
       user.email = email;
+    }
+
+    if(country) {
+      user.country = country;
     }
 
     if (birthday) {

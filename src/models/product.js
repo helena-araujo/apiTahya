@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  barcode: {
+    type: String,
+    required: false
+  },
   quantity: {
     type: Number,
     required: false
@@ -32,8 +36,8 @@ const productSchema = new mongoose.Schema({
   },
   nutritionFacts: {
     type: Object,
-    //import from Open Food Facts
     required: false
+    //import from Open Food Facts
   },
   barcode: {
     type: Object,

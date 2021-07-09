@@ -12,6 +12,11 @@ const userSchema = new mongoose.Schema({
     match: /.+\@.+\..+/,
     unique: true
   },
+  country: {
+    type: String,
+    required: true,
+    default: "world"
+  },
   password: {
     type: String,
     required: true

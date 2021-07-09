@@ -21,9 +21,9 @@ app.use(function (req, res, next) {
   );
   next();
 });
-
+//translate index
 app.use("/", index);
-app.use("/", userRouter);
+app.use("/users", userRouter);
 //app.use("/products", productsRouter);
 
 module.exports = app;

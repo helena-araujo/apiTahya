@@ -1,8 +1,22 @@
 const SECRET = process.env.SECRET;
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const request = require("request")
 const User = require("../models/user");
 const Product = require("../models/product");
+
+const defaultOptions = {
+  country: "world"
+}
+
+//constructor (options = defaultOptions); {
+//  this.options = options;
+//  this.URL = `https://${options.country}.openfoodfacts.org`;
+//}
+
+//country (country = defaultOptions.country) {
+//  return this.setOption("country", country)
+//}
 
 //testing, post not public product
 module.exports.myConsume_post = async (req, res) => {
@@ -26,7 +40,7 @@ module.exports.myConsume_post = async (req, res) => {
     });
   }
 }
-//testing, gets not public product
+//testing, gets non public product
 //needs to filter by Date, RecentLast.name, tags, brand, category, 
 //price, PriceRange, isPublic, notConsumed/consumed
 module.exports.myConsume_get = (req, res) => {
@@ -76,14 +90,14 @@ module.exports.publicProduct_post = async (req, res) => {
     });
   }
 }
-//testing, gets public product
+//testing, gets a public product
 //needs to filter by Date, RecentLast.name, tags, brand, category, 
 //price, PriceRange, isPublic, notConsumed/consumed
 module.exports.publicProduct_get = (req, res) => {
   try {
     if (category) {
       Product = Product.filter(filteredProduct => {
-        return filteredProduct.category == estado.toUpperCase();
+        return filteredProduct.category;
       });
     }
     const products = await Product.find();
@@ -96,7 +110,7 @@ module.exports.publicProduct_get = (req, res) => {
 }
 //testing, updates product info
 module.exports.updateProduct = async (req, res) => {
-  //needs user auth, check if it's public
+  //needs user auth (middleware?), check if it's public
   try {
     const product = await Product.findById(req.body.id);
     if (!product) {
@@ -106,23 +120,20 @@ module.exports.updateProduct = async (req, res) => {
     }
 
     const {
-      name, category, brand, quantity, itWasBoughtFrom,
+      name, category, brand, barcode, quantity, itWasBoughtFrom,
       itWasBoughtOn, expirationDate, nutritionFacts, barcode,
       consumed, consumedOn, notes, tags, isPublic, Owner, cratedOn
     } = req.body;
 
-    if (name != null
-      || name != undefined) {
+    if (name) {
       product.name = name;
     }
 
-    if (category != null
-      || category != undefined) {
+    if (category) {
       product.category = category;
     }
 
-    if (consumed != null
-      || consumed != undefined) {
+    if (consumed) {
       product.consumed = consumed;
     }
 
@@ -137,7 +148,7 @@ module.exports.updateProduct = async (req, res) => {
 }
 //testing, deletes product
 module.exports.deleteProduct = async (req, res) => {
-  //needs user auth, check if it's public
+  //needs user auth (middleware?), check if it's public
   try {
     const product = await Product.findById(req.body.id);
     if (!product) {
