@@ -28,7 +28,7 @@ module.exports.signUpAccount_post = async (req, res) => {
 
   try {
     await newUser.save();
-    return res.status(200).send(newUser);
+    return res.status(201).send(newUser);
   } catch (err) {
     return res.status(500).json({
       message: err.message
