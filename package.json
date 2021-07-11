@@ -1,5 +1,5 @@
 {
-  "name": "food-counter-plus-plus",
+  "name": "apiTahya",
   "version": "1.0.0",
   "description": "API to register and filter food products, their nutrition facts, price and where it was bought by user",
   "main": "server.js",
